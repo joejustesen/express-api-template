@@ -5,15 +5,16 @@
   "main": "server.js",
   "scripts": {
     "start": "node ./server.js",
-    "build": "webpack -p --process --env production",
-    "dev": "webpack --watch --env development",
+    "build": "babel ./src/index.js -o server.js",
+    "dev": "babel-watch ./src/index.js",
     "test": "jest --watch",
     "flow-start": "flow start",
     "flow-stop": "flow stop",
     "flow-status": "flow status",
     "flow-coverage": "flow coverage",
     "lint": "eslint ./src --ext .js",
-    "lint-fix": "eslint ./src --ext .js --fix"
+    "lint-fix": "eslint ./src --ext .js --fix",
+    "clean": "rm -f ./server.js"
   },
   "keywords": [
     "express",
@@ -26,18 +27,17 @@
     "express": "^4.16.3"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.6",
     "babel-jest": "^23.4.0",
-    "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-flow": "^6.23.0",
+    "babel-watch": "^2.0.7",
     "eslint": "^5.2.0",
     "eslint-config-airbnb-base": "^13.0.0",
     "eslint-plugin-import": "^2.13.0",
     "flow-bin": "^0.77.0",
-    "jest": "^23.4.1",
-    "webpack": "^4.16.1",
-    "webpack-merge": "^4.1.3"
+    "jest": "^23.4.1"
   }
 }
