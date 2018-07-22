@@ -1,9 +1,9 @@
-export default async function exampleGet(req, res) {
+export default async function exampleGet() {
   const data = {
     bird: 'robin',
     gender: 'female',
     when: new Date().toISOString(),
   };
 
-  res.send(data);
+  return data;
 }

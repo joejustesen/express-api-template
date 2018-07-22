@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`/example api conformance tests /example should return bird data 1`] = `
+Object {
+  "bird": "robin",
+  "gender": "female",
+  "when": Any<String>,
+}
+`;
