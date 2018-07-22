@@ -7,7 +7,9 @@
     "start": "node ./dist/server.js",
     "build": "babel src --out-dir dist --source-maps",
     "dev": "babel-watch ./src/server.js",
-    "test": "jest --watch",
+    "test": "jest",
+    "test-watch": "jest --watch",
+    "test-coverage": "jest --coverage",
     "flow-start": "flow start",
     "flow-stop": "flow stop",
     "flow-status": "flow status",
@@ -46,5 +48,17 @@
     "flow-bin": "^0.77.0",
     "jest": "^23.4.1",
     "rimraf": "^2.6.2"
+  },
+  "jest": {
+    "verbose": true,
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "moduleDirectores": [
+      "src"
+    ]
   }
 }

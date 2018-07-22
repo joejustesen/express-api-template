@@ -1,4 +1,4 @@
-export default async function exampleGet() {
+export default async function exampleGetHandler() {
   const data = {
     bird: 'robin',
     gender: 'female',
