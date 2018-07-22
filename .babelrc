@@ -7,6 +7,15 @@
         }],
         "flow"
     ],
+    
+    "env": {
+        "production": {
+            "presets": ["minify"]
+        }
+    },
 
-    "retainLines": true
+    "retainLines": true,
+    "plugins": [
+        ["inline-json"]
+    ]
 }

@@ -1,9 +1,20 @@
 import express from 'express';
-import example from './routes/example';
+import http from 'http';
+import https from 'https';
 
+import loggerSetup from './logger';
+import exampleRoutes from './routes/example';
+
+const port = process.env.PORT !== undefined ? process.env.PORT : 3030;
+const host = process.env.HOST || 'localhost';
 const app = express();
+const logger = loggerSetup(app, process.env);
 
-app.get('/', (req, res) => res.send('Hello World!\nAnd another change.\n'));
-app.use('/example', example);
+app.locals.logger = logger;
 
-app.listen(3000, () => console.log('Example app listening on port 3000!'));
+//  TODO: add all routes here
+app.use('/example', exampleRoutes);
+
+//  Start the server
+const server = process.env.NODE_ENV === 'production' ? https.createServer(app) : http.createServer(app);
+server.listen(port, host, () => logger.info(`server listening on ${server.address().address}:${server.address().port}`));
