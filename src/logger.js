@@ -1,5 +1,6 @@
 import { createLogger, transports, format } from 'winston';
 // import expressWinston from 'express-winston';
+import loggingMiddleware from './middleware/logging';
 
 export default function setupLogging(app, env) {
   const opts = {
@@ -18,6 +19,7 @@ export default function setupLogging(app, env) {
   }
 
   const logger = createLogger(opts);
+  app.use(loggingMiddleware(logger));
   // app.use(expressWinston.logger(opts));
 
   return logger;
