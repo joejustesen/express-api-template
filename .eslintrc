@@ -2,7 +2,8 @@
     "parser": "babel-eslint",
     "extends": ["plugin:jest/recommended", "airbnb-base"],
     "rules": {
-      "consistent-return": "off"
+      "consistent-return": "off",
+      "linebreak-style": "off"
     },
     "env": {
       "node": true
